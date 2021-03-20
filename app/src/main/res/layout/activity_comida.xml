@@ -12,16 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="60dp"
         android:text="COMIDA"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edit1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text1"
@@ -105,13 +102,55 @@
         android:id="@+id/boton_comida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/boton_redondo"
-        android:text="Agregar"
+        android:text="Agregar Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit2" />
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_comida"
+        android:stretchColumns="0,1"
+        android:textSize="18sp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:background="@drawable/boton_redondo">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripción" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit" />
+        </TableRow>
+    </TableLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
