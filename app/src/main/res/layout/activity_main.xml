@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222831"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Items de Gasto"
+        android:textColor="#eeeeee"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/boton_comida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/boton_comida"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="startActivityComida"
+        android:text="Comida"
+        android:textColor="#393e46"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/boton_educacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/boton_educacion"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="startActivityEducacion"
+        android:text="Educacion"
+        android:textColor="#393e46"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/boton_salud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_comida" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/boton_salud"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="startActivitySalud"
+        android:text="Salud"
+        android:textColor="#393e46"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/boton_total"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_educacion" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/boton_total"
+        android:layout_width="375dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/boton_redondo"
+        android:text="Total"
+        android:textColor="#393e46"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_salud" />
+</androidx.constraintlayout.widget.ConstraintLayout>
