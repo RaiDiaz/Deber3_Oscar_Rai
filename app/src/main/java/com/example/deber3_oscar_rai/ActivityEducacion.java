@@ -11,6 +11,6 @@ public class ActivityEducacion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_educacion);
 
-      //  hola
+      //  hola jjjj
     }
 }
