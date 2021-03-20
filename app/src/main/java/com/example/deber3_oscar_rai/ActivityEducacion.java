@@ -9,6 +9,6 @@ public class ActivityEducacion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_educacion);
-        //A Rai le gusta mi huevo
+        //A Rai le gusta mi huevo porque dice que esta rico
     }
 }
