@@ -58,9 +58,7 @@
         android:layout_marginBottom="8dp"
         android:height="50dp"
         android:background="#FFFFFF"
-
         android:hint="Descripción"
-
         android:textColor="@color/black"
         android:textColorHint="#040303"
         app:layout_constraintBottom_toTopOf="@+id/edit_valor"
@@ -86,7 +84,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
+        app:layout_constraintEnd_toStartOf="@+id/boto_eliminar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 
@@ -100,7 +98,6 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/boton_redondo"
-        android:onClick="eliminar_item"
         android:paddingLeft="15dip"
         android:paddingTop="3dip"
         android:text="Eliminar"
@@ -122,7 +119,6 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/boton_redondo"
-        android:onClick="cancelar"
         android:paddingLeft="15dip"
         android:paddingTop="3dip"
         android:text="Cancelar"

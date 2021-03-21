@@ -11,33 +11,30 @@
         android:id="@+id/titulo_Item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NOMBRE"
+        android:layout_marginTop="8dp"
+        android:text="SALUD"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edit_descripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descripcion_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
         android:text="Descripción:"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_descripcion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_Item" />
 
     <EditText
         android:id="@+id/edit_descripcion"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -50,9 +47,8 @@
         android:textColorHint="#040303"
         app:layout_constraintBottom_toTopOf="@+id/valor_titulo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo"
+        app:layout_constraintStart_toEndOf="@+id/descripcion_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_Item"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -76,7 +72,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:height="50dp"
         android:background="#FFFFFF"
         android:digits="0123456789"
@@ -86,7 +81,7 @@
         android:textColorHint="#040303"
         app:layout_constraintBottom_toTopOf="@+id/boton_agregar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valor_titulo"
         tools:ignore="MissingConstraints" />

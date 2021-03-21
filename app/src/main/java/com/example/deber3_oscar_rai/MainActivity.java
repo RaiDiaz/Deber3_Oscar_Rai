@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startActivityTotal(View v) {
+        Intent intent = new Intent(MainActivity.this, ActivityTotal.class);
+        startActivity(intent);
+    }
+
 }

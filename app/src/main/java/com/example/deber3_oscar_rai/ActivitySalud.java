@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 
@@ -67,7 +68,7 @@ public class ActivitySalud extends AppCompatActivity {
                 final int posicion=i;
 
                 Intent intent = new Intent(ActivitySalud.this, EditItemActivity.class);
-                int[] datos = new int[]{intValue, posicion};
+                ArrayList datos=new ArrayList<>(Arrays. asList(intValue,posicion,adaptador1));
                 intent.putExtra("Datos", datos);
                 startActivity(intent);
 
@@ -84,8 +85,9 @@ public class ActivitySalud extends AppCompatActivity {
 
         @RequiresApi(api = Build.VERSION_CODES.O)
         public void addItem(View v){
+        Toast toast;
         if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
-            Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
+            toast = Toast.makeText(this, "Por favor llene todos los campos",
                     Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -94,7 +96,7 @@ public class ActivitySalud extends AppCompatActivity {
             adaptador1.notifyDataSetChanged();
             descripcion.setText("");
             valor.setText("");
-            Toast toast = Toast.makeText(this, "Item agregado exitosamente"+listaSalud.size(),
+            toast = Toast.makeText(this, "Item agregado exitosamente"+listaSalud.size(),
                     Toast.LENGTH_SHORT);
             toast.show();
 
