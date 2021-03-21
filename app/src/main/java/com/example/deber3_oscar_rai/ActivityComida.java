@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -40,12 +41,17 @@ public class ActivityComida extends AppCompatActivity {
     }
 
     public void addItem(View v){
-            listaComida.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
-            Toast toast = Toast.makeText(this, "Item agregado exitosamente"+listaComida.size(),
-                Toast.LENGTH_SHORT);
+        if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
+            Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
+                    Toast.LENGTH_SHORT);
             toast.show();
+        }
+        else{
+            listaComida.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
+            Toast toast1 = Toast.makeText(this, "Item agregado exitosamente: "+listaComida.size(),
+                    Toast.LENGTH_SHORT);
+            toast1.show();
+        }
     }
-
-
 
 }
