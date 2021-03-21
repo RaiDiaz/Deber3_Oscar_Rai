@@ -40,7 +40,7 @@ public class ActivityComida extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void addItem(){
+    public void addItem(View v){
         if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(descripcion.getText().toString())){
             Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
                     Toast.LENGTH_SHORT);
