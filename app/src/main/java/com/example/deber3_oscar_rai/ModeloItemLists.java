@@ -9,7 +9,7 @@ public class ModeloItemLists {
     public static ModeloItemLists getInstance() {
         return ourInstance;
     }
-
+    //Clase Singleton
     private static ModeloItemLists ourInstance = new ModeloItemLists();
 
     private ModeloItemLists(){
