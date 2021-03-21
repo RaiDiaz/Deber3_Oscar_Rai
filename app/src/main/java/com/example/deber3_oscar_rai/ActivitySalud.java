@@ -48,6 +48,12 @@ public class ActivitySalud extends AppCompatActivity {
         int intValue = mIntent.getIntExtra("indexLista", 0);
         listaSalud.addItem("Buprex", 2);
         listaSalud.addItem("Buprex34", 5);
+        listaSalud.addItem("Buprex", 2);
+        listaSalud.addItem("Buprex34", 5);
+        listaSalud.addItem("Buprex", 2);
+        listaSalud.addItem("Buprex34", 5);
+        listaSalud.addItem("Buprex", 2);
+        listaSalud.addItem("Buprex34", 5);
         adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listaSalud);
         lv1=findViewById(R.id.list_items);
         lv1.setAdapter(adaptador1);
