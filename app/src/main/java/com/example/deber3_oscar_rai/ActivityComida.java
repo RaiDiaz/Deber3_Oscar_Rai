@@ -23,8 +23,8 @@ public class ActivityComida extends AppCompatActivity {
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putParcelableArrayList("listaComida",listaComida);
         super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putParcelableArrayList("listaComida",listaComida);
     }
 
     @Override
@@ -35,12 +35,14 @@ public class ActivityComida extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         descripcion=(EditText) findViewById(R.id.edit_descripcion);
         valor=(EditText) findViewById(R.id.edit_valor);
-        //listaComida = (ArrayList<Item>) savedInstanceState.getParcelableArrayList("listaComida");
-        //savedInstanceState.getpa
+        listaComida=new ItemList();
         if(savedInstanceState != null) {
-
-        } else{
-            listaComida=new ItemList();
+            savedInstanceState
+                    .getParcelableArrayList("listaComida")
+                    .stream()
+                    .forEach(item -> {
+                        listaComida.addItem((Item)item);
+                    });
         }
     }
 

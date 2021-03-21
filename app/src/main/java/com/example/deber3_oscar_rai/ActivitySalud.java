@@ -1,12 +1,14 @@
 package com.example.deber3_oscar_rai;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -35,7 +37,6 @@ public class ActivitySalud extends AppCompatActivity {
         listaSalud=new ItemList();
         descripcion= findViewById(R.id.edit_descripcion);
         valor= findViewById(R.id.edit_valor);
-
     }
 
     @Override
@@ -44,6 +45,7 @@ public class ActivitySalud extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void addItem(View v){
         if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
             Toast toast = Toast.makeText(this, "Por favor llene todos los campos",

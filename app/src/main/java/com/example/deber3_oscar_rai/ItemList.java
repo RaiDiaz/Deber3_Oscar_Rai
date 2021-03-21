@@ -20,6 +20,11 @@ public class ItemList extends ArrayList<Item> {
         total+=item.getValor();
     }
 
+    public void addItem(Item item){
+        add(item);
+        total+=item.getValor();
+    }
+
     public void removeItem(Item item){
         remove(item);
         total-=item.getValor();
