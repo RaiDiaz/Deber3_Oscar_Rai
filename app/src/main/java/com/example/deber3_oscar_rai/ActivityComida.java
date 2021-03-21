@@ -5,12 +5,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class ActivityComida extends AppCompatActivity {
 
@@ -19,14 +22,26 @@ public class ActivityComida extends AppCompatActivity {
     private EditText valor;
 
     @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putParcelableArrayList("listaComida",listaComida);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comida);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        listaComida=new ItemList();
         descripcion=(EditText) findViewById(R.id.edit_descripcion);
         valor=(EditText) findViewById(R.id.edit_valor);
+        //listaComida = (ArrayList<Item>) savedInstanceState.getParcelableArrayList("listaComida");
+        //savedInstanceState.getpa
+        if(savedInstanceState != null) {
+
+        } else{
+            listaComida=new ItemList();
+        }
     }
 
     @Override

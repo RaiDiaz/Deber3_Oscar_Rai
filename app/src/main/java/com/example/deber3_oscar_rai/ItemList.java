@@ -1,4 +1,9 @@
 package com.example.deber3_oscar_rai;
+import android.os.Build;
+import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.ArrayList;
 
 public class ItemList extends ArrayList<Item> {
@@ -8,7 +13,8 @@ public class ItemList extends ArrayList<Item> {
         total=0.0;
     }
 
-    public void addItem(String descripcion,double valor){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addItem(String descripcion, double valor){
         Item item= new Item(descripcion,valor);
         add(item);
         total+=item.getValor();
