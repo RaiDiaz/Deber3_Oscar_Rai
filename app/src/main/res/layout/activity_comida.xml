@@ -8,7 +8,7 @@
     tools:context=".ActivityComida">
 
     <TextView
-        android:id="@+id/descripcion_titulo"
+        android:id="@+id/titulo_salud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/descripcion_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_salud" />
 
     <EditText
         android:id="@+id/edit_descripcion"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -114,7 +114,6 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 
     <TableLayout
-        android:id="@+id/list_items"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -124,33 +123,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton_agregar">
+        app:layout_constraintTop_toBottomOf="@+id/boton_agregar"
+        >
 
         <TableRow
             android:layout_width="fill_parent"
             android:background="@drawable/boton_redondo">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="162sp"
                 android:layout_height="wrap_content"
                 android:text="Descripción"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="87sp"
                 android:layout_height="wrap_content"
                 android:text="Valor"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="97sp"
                 android:layout_height="match_parent"
                 android:text="Fecha"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
                 android:text=">"
                 android:textSize="18sp" />
         </TableRow>
@@ -160,6 +160,7 @@
             android:background="@color/white">
 
             <TextView
+                android:layout_width="162sp"
                 android:layout_height="wrap_content"
                 android:text="Descripción"
                 android:textSize="18sp" />

@@ -8,7 +8,7 @@
     tools:context=".ActivitySalud">
 
     <TextView
-        android:id="@+id/descripcion_titulo"
+        android:id="@+id/titulo_salud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.51" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/descripcion_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_salud" />
 
     <EditText
         android:id="@+id/edit_descripcion"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -108,11 +108,24 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/boton_redondo"
+        android:onClick="addItem"
         android:text="Agregar Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
+
+    <ListView
+        android:id="@+id/list_items"
+        android:layout_width="349dp"
+        android:layout_height="249dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_agregar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
