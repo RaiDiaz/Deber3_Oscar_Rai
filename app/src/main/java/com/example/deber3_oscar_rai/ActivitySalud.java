@@ -31,7 +31,7 @@ public class ActivitySalud extends AppCompatActivity {
     private EditText descripcion;
     private EditText valor;
     private ListView lv1;
-
+    private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
 
     public ActivitySalud() {
 
@@ -44,8 +44,8 @@ public class ActivitySalud extends AppCompatActivity {
         setContentView(R.layout.activity_salud);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-        listaSalud=new ItemList();
+        Intent mIntent = getIntent();
+        int intValue = mIntent.getIntExtra("indexLista", 0);
         listaSalud.addItem("Buprex", 2);
         listaSalud.addItem("Buprex34", 5);
         adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listaSalud);

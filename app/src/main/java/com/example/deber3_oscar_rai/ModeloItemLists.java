@@ -3,22 +3,31 @@ package com.example.deber3_oscar_rai;
 import java.util.ArrayList;
 
 public class ModeloItemLists {
-    private ArrayList<ItemList> listasItems;
-
+    private ItemList listaComida;
+    private ItemList listaSalud;
+    private ItemList listaEducacion;
     public static ModeloItemLists getInstance() {
         return ourInstance;
     }
+
     private static ModeloItemLists ourInstance = new ModeloItemLists();
 
     private ModeloItemLists(){
-        ArrayList<ItemList> listasItems=new ArrayList<>(3);
+        listaComida=new ItemList("COMIDA");
+        listaSalud=new ItemList("SALUD");
+        listaEducacion=new ItemList("EDUCACION");
     }
 
     public ItemList getListaDeItems(int i){
-        return listasItems.get(i);
+        if(i==0)
+            return listaComida;
+        else if (i==1)
+            return listaSalud;
+        else
+            return listaEducacion;
     }
 
     public double totalListas(){
-        return listasItems.get(0).getTotal()+listasItems.get(1).getTotal()+listasItems.get(0).getTotal();
+        return listaComida.getTotal()+listaSalud.getTotal()+listaEducacion.getTotal();
     }
 }

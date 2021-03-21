@@ -4,9 +4,11 @@ import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 
 public class ItemList extends ArrayList<Item> {
+    private String nombreLista;
     private double total;
 
-    public ItemList(){
+    public ItemList(String nombreLista){
+        this.nombreLista=nombreLista;
         total=0.0;
     }
 
@@ -32,7 +34,13 @@ public class ItemList extends ArrayList<Item> {
         total-=get(itemIndex).getValor();
     }
 
+    public void setNombreLista(String nombreLista) {
+        this.nombreLista = nombreLista;
+    }
+
     public double getTotal() {
         return total;
     }
+
+    public String getNombreLista() { return nombreLista; }
 }

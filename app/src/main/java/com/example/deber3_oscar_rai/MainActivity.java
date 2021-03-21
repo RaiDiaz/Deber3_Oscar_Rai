@@ -7,7 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ModeloItemLists mStatusTracker = ModeloItemLists.getInstance();
+    private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,6 @@ public class MainActivity extends AppCompatActivity {
     public void startActivityEducacion(View v) {
         Intent intent = new Intent(MainActivity.this, ActivityComida.class);
         intent.putExtra("indexLista",2);
-        startActivity(intent);
-    }
-
-    public void startDialog(View v) {
-        Intent intent = new Intent(MainActivity.this, EditItemActivity.class);
         startActivity(intent);
     }
 

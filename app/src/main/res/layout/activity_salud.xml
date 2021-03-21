@@ -8,7 +8,7 @@
     tools:context=".ActivitySalud">
 
     <TextView
-        android:id="@+id/titulo_salud"
+        android:id="@+id/titulo_Item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_salud" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_Item" />
 
     <EditText
         android:id="@+id/edit_descripcion"

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class ActivityTotal extends AppCompatActivity {
 
-    private ModeloItemLists mStatusTracker = ModeloItemLists.getInstance();
+    private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
