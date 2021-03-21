@@ -45,7 +45,7 @@ public class ActivitySalud extends AppCompatActivity {
     }
 
     public void addItem(View v){
-        if(TextUtils.isEmpty(descripcion.getText().toString())&&TextUtils.isEmpty(valor.getText().toString())){
+        if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
             Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
                     Toast.LENGTH_SHORT);
             toast.show();
