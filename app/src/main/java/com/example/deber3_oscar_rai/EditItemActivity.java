@@ -30,7 +30,7 @@ public class EditItemActivity extends Activity {
         descripcion.setText(listaItems.get(intValue[1]).getDescripcion());
         valor.setText(String.valueOf(listaItems.get(intValue[1]).getValor()));
         lv1=findViewById(R.id.list_items);
-        adaptador1 = lv1.getAdapter();
+       // adaptador1 = lv1.getAdapter();
 
     }
 
