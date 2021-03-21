@@ -41,14 +41,10 @@ public class ActivityComida extends AppCompatActivity {
     }
 
     public void addItem(View v){
-        if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(descripcion.getText().toString())){
-            Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
-                    Toast.LENGTH_SHORT);
-            toast.show();
-        }
-        else{
             listaComida.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
-        }
+            Toast toast = Toast.makeText(this, "Item agregado exitosamente"+listaComida.size(),
+                Toast.LENGTH_SHORT);
+            toast.show();
     }
 
 
