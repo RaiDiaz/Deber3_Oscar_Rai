@@ -1,14 +1,13 @@
 package com.example.deber3_oscar_rai;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private ModeloItemLists mStatusTracker = ModeloItemLists.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startActivityEducacion(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivityEducacion.class);
+        Intent intent = new Intent(MainActivity.this, ActivityComida.class);
         startActivity(intent);
     }
 
@@ -35,6 +34,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, EditItemActivity.class);
         startActivity(intent);
     }
-
 
 }

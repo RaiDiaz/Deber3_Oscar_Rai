@@ -1,9 +1,6 @@
 package com.example.deber3_oscar_rai;
 import android.os.Build;
-import android.os.Parcelable;
-
 import androidx.annotation.RequiresApi;
-
 import java.util.ArrayList;
 
 public class ItemList extends ArrayList<Item> {
