@@ -3,11 +3,8 @@ package com.example.deber3_oscar_rai;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,24 +20,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 
 public class ActivitySalud extends AppCompatActivity {
 
-    private ItemList listaSalud;
+    public static final int REQUEST = 1;
+
+    private ItemList listItem;
     private ArrayAdapter<Item> adaptador1;
     private EditText descripcion;
     private EditText valor;
+    private TextView total_item;
     private ListView lv1;
     private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
     private int intValue;
-
-    public ActivitySalud() {
-
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -50,17 +43,16 @@ public class ActivitySalud extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         intValue = getIntent().getIntExtra("indexLista", 0);
-        listaSalud = mItemLists.getListaDeItems(intValue);
+        listItem = mItemLists.getListaDeItems(intValue);
         TextView titulo=(TextView) findViewById(R.id.titulo_Item);
-        titulo.setText(listaSalud.getNombreLista());
-        adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listaSalud);
+        titulo.setText(listItem.getNombreLista());
+        total_item=(TextView) findViewById(R.id.total_item);
+        total_item.setText(String.format("%,.2f",listItem.getTotal()));
+        adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listItem);
         lv1=findViewById(R.id.list_items);
         lv1.setAdapter(adaptador1);
         descripcion = findViewById(R.id.edit_descripcion);
         valor = findViewById(R.id.edit_valor);
-        // descripcion=(EditText) findViewById(R.id.edit_descripcion);
-        // valor=(EditText) findViewById(R.id.edit_valor);
-
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -68,13 +60,25 @@ public class ActivitySalud extends AppCompatActivity {
                 final int posicion=i;
 
                 Intent intent = new Intent(ActivitySalud.this, EditItemActivity.class);
-                ArrayList datos=new ArrayList<>(Arrays. asList(intValue,posicion,adaptador1));
+                int[] datos = new int[]{intValue, posicion};
                 intent.putExtra("Datos", datos);
-                startActivity(intent);
-
-
+                startActivityForResult(intent,REQUEST);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Test for the right intent reply.
+        if (requestCode == REQUEST) {
+            // Test to make sure the intent reply result was good.
+            if (resultCode == RESULT_OK) {
+                total_item.setText(String.format("%,.2f",listItem.getTotal()));
+                adaptador1.notifyDataSetChanged();
+            }
+        }
     }
 
     @Override
@@ -92,16 +96,14 @@ public class ActivitySalud extends AppCompatActivity {
             toast.show();
         }
         else{
-            listaSalud.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
+            listItem.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
             adaptador1.notifyDataSetChanged();
             descripcion.setText("");
             valor.setText("");
-            toast = Toast.makeText(this, "Item agregado exitosamente"+listaSalud.size(),
+            total_item.setText(String.format("%,.2f",listItem.getTotal()));
+            toast = Toast.makeText(this, "Item agregado exitosamente"+listItem.size(),
                     Toast.LENGTH_SHORT);
             toast.show();
-
         }
     }
-
-
 }

@@ -52,6 +52,7 @@ public class Item{
     public String toString() {
         return  "-> "+ descripcion  + "      valor = $" + valor + "                             >"+
                 "\n " + fechaYHora;
+
     }
 
 }

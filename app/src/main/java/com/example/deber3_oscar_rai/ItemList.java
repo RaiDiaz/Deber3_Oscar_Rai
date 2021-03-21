@@ -19,9 +19,13 @@ public class ItemList extends ArrayList<Item> {
         total+=item.getValor();
     }
 
-    public void addItem(Item item){
-        add(item);
-        total+=item.getValor();
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void actualizarItem(int itemIndex, String descripcion, double valor){
+        total-=get(itemIndex).getValor();
+        get(itemIndex).setDescripcion(descripcion);
+        get(itemIndex).setValor(valor);
+        get(itemIndex).setFechaYHora();
+        total+=get(itemIndex).getValor();
     }
 
     public void removeItem(Item item){

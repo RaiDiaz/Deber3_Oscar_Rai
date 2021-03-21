@@ -3,11 +3,14 @@ package com.example.deber3_oscar_rai;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -18,8 +21,8 @@ public class EditItemActivity extends Activity {
     private int[] intValue;
     private EditText descripcion;
     private EditText valor;
-    private ListView lv1;
     private Item editItem;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,6 @@ public class EditItemActivity extends Activity {
         editItem=listaItems.get(intValue[1]);
         descripcion.setText(editItem.getDescripcion());
         valor.setText(String.valueOf(editItem.getValor()));
-        lv1=findViewById(R.id.list_items);
     }
 
     public void finishDialog(View v) {
@@ -42,17 +44,33 @@ public class EditItemActivity extends Activity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void actualizar_item(View v){
-        editItem.setDescripcion(descripcion.getText().toString());
-        editItem.setValor(Double.valueOf(valor.getText().toString()));
-        editItem.setFechaYHora();
-        finishDialog(v);
+        if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
+            toast = Toast.makeText(this, "Por favor llene todos los campos",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else{
+            listaItems.actualizarItem(intValue[1],descripcion.getText().toString(),Double.valueOf(valor.getText().toString()));
+            toast = Toast.makeText(this, "Item actualizado exitosamente",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+            setResult(RESULT_OK);
+            finishDialog(v);
+        }
     }
 
     public void eliminar_item(View v){
         listaItems.removeItem(editItem);
+        toast = Toast.makeText(this, "Item eliminado exitosamente: "+listaItems.size(),
+                Toast.LENGTH_SHORT);
+        toast.show();
+        setResult(RESULT_OK);
         finishDialog(v);
     }
     public void cancelar(View v){
+        toast = Toast.makeText(this, "Edición cancelada",
+                Toast.LENGTH_SHORT);
+        toast.show();
         finishDialog(v);
 
     }
