@@ -8,7 +8,7 @@
     tools:context=".ActivityComida">
 
     <TextView
-        android:id="@+id/titulo2"
+        android:id="@+id/descripcion_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -30,14 +30,14 @@
         android:text="Descripción:"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit1"
+        app:layout_constraintBottom_toTopOf="@+id/edit_descripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo2" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcion_titulo" />
 
     <EditText
-        android:id="@+id/edit1"
+        android:id="@+id/edit_descripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
         android:hint="Ingrese Descripción"
         android:textColor="@color/black"
         android:textColorHint="#040303"
-        app:layout_constraintBottom_toTopOf="@+id/text2"
+        app:layout_constraintBottom_toTopOf="@+id/valor_titulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/valor_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,14 +68,14 @@
         android:text="Valor:"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/edit2"
+        app:layout_constraintBottom_toTopOf="@+id/edit_valor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit1" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_descripcion" />
 
     <EditText
-        android:id="@+id/edit2"
+        android:id="@+id/edit_valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -91,15 +91,15 @@
         android:hint="USD"
         android:textColor="@color/black"
         android:textColorHint="#040303"
-        app:layout_constraintBottom_toTopOf="@+id/botonAgregarItem"
+        app:layout_constraintBottom_toTopOf="@+id/boton_agregar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2"
+        app:layout_constraintTop_toBottomOf="@+id/valor_titulo"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/botonAgregarItem"
+        android:id="@+id/boton_agregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -110,9 +110,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 
     <TableLayout
+        android:id="@+id/list_items"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -122,34 +123,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonAgregarItem"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/boton_agregar">
 
         <TableRow
             android:layout_width="fill_parent"
             android:background="@drawable/boton_redondo">
 
             <TextView
-                android:layout_width="162sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Descripción"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="87sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Valor"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="97sp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Fecha"
                 android:textSize="18sp" />
 
             <TextView
-                android:layout_width="50sp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text=">"
                 android:textSize="18sp" />
         </TableRow>
@@ -159,7 +159,7 @@
             android:background="@color/white">
 
             <TextView
-                android:layout_width="162sp"
+                android:layout_width="0"
                 android:layout_height="wrap_content"
                 android:text="Descripción"
                 android:textSize="18sp" />

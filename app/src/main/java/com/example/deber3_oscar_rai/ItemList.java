@@ -8,7 +8,8 @@ public class ItemList extends ArrayList<Item> {
         total=0.0;
     }
 
-    public void addItem(Item item){
+    public void addItem(String descripcion,double valor){
+        Item item= new Item(descripcion,valor);
         add(item);
         total+=item.getValor();
     }

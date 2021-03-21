@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Deber3_Oscar_Rai">
-        <activity android:name=".ActivityEducacion"></activity>
+        <activity android:name=".EditItemActivity"
+            android:theme="@android:style/Theme.Dialog">
+        </activity>
+        <activity android:name=".ActivityEducacion" />
         <activity android:name=".ActivitySalud" />
         <activity android:name=".ActivityComida" />
         <activity android:name=".MainActivity">

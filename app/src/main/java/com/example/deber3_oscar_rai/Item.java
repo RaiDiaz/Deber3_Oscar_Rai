@@ -26,8 +26,8 @@ public class Item{
         this.valor = valor;
     }
 
-    public void setFechaYHora(LocalDateTime fechaYHora) {
-        this.fechaYHora = fechaYHora;
+    public void setFechaYHora() {
+        fechaYHora=LocalDateTime.now();
     }
 
     public String getDescripcion() {
