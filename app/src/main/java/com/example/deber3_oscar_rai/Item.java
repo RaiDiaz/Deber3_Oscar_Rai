@@ -48,4 +48,10 @@ public class Item{
         return fechaYHora;
     }
 
+    @Override
+    public String toString() {
+        return  "-> "+ descripcion  + "      valor = $" + valor +
+                "\n " + fechaYHora;
+    }
+
 }

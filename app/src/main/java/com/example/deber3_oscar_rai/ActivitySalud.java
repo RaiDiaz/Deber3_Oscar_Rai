@@ -14,27 +14,43 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class ActivitySalud extends AppCompatActivity {
 
     private ItemList listaSalud;
+    private ArrayAdapter<Item> adaptador1;
     private EditText descripcion;
     private EditText valor;
+    private ListView lv1;
+
 
     public ActivitySalud() {
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salud);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
         listaSalud=new ItemList();
+        listaSalud.addItem("Buprex", 2);
+        listaSalud.addItem("Buprex34", 5);
+        adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listaSalud);
+        lv1=findViewById(R.id.list_items);
+        lv1.setAdapter(adaptador1);
         descripcion= findViewById(R.id.edit_descripcion);
         valor= findViewById(R.id.edit_valor);
     }
@@ -45,8 +61,8 @@ public class ActivitySalud extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addItem(View v){
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public void addItem(View v){
         if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
             Toast toast = Toast.makeText(this, "Por favor llene todos los campos",
                     Toast.LENGTH_SHORT);
@@ -54,6 +70,13 @@ public class ActivitySalud extends AppCompatActivity {
         }
         else{
             listaSalud.addItem(descripcion.getText().toString(),Double.parseDouble(valor.getText().toString()));
+            adaptador1.notifyDataSetChanged();
+            descripcion.setText("");
+            valor.setText("");
+            Toast toast = Toast.makeText(this, "Item agregado exitosamente"+listaSalud.size(),
+                    Toast.LENGTH_SHORT);
+            toast.show();
+
         }
     }
 
