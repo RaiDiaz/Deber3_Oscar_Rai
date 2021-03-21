@@ -17,16 +17,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void startActivityComida(View v) {
         Intent intent = new Intent(MainActivity.this, ActivityComida.class);
+        intent.putExtra("indexLista",0);
         startActivity(intent);
     }
 
     public void startActivitySalud(View v) {
         Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
+        intent.putExtra("indexLista",1);
         startActivity(intent);
     }
 
     public void startActivityEducacion(View v) {
         Intent intent = new Intent(MainActivity.this, ActivityComida.class);
+        intent.putExtra("indexLista",2);
         startActivity(intent);
     }
 
