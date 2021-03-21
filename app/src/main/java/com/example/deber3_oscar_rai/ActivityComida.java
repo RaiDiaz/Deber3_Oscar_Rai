@@ -40,21 +40,7 @@ public class ActivityComida extends AppCompatActivity {
         valor=(EditText) findViewById(R.id.edit_valor);
         TextView titulo=(TextView) findViewById(R.id.titulo_Item);
         titulo.setText(listaItems.getNombreLista());
-        TableLayout tablaDatos=(TableLayout) findViewById(R.id.tabla_Datos);
-        TableRow row=new TableRow(this);
-        TextView t1=new TextView(this);
-        TextView t2=new TextView(this);
-        TextView t3=new TextView(this);
-        TextView t4=new TextView(this);
-        t1.setText("valor");
-        t2.setText("valor");
-        t3.setText("valor");
-        t4.setText("Edit");
-        row.addView(t1);
-        row.addView(t2);
-        row.addView(t3);
-        row.addView(t4);
-        tablaDatos.addView(row);
+
 
     }
 

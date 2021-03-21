@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,10 +15,12 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class ActivitySalud extends AppCompatActivity {
     private EditText valor;
     private ListView lv1;
     private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
+    private int intValue;
 
     public ActivitySalud() {
 
@@ -44,21 +48,32 @@ public class ActivitySalud extends AppCompatActivity {
         setContentView(R.layout.activity_salud);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        Intent mIntent = getIntent();
-        int intValue = mIntent.getIntExtra("indexLista", 0);
-        listaSalud.addItem("Buprex", 2);
-        listaSalud.addItem("Buprex34", 5);
-        listaSalud.addItem("Buprex", 2);
-        listaSalud.addItem("Buprex34", 5);
-        listaSalud.addItem("Buprex", 2);
-        listaSalud.addItem("Buprex34", 5);
-        listaSalud.addItem("Buprex", 2);
-        listaSalud.addItem("Buprex34", 5);
+        intValue = getIntent().getIntExtra("indexLista", 0);
+        listaSalud = mItemLists.getListaDeItems(intValue);
+        TextView titulo=(TextView) findViewById(R.id.titulo_Item);
+        titulo.setText(listaSalud.getNombreLista());
         adaptador1=new ArrayAdapter<Item>(this,R.layout.row,listaSalud);
         lv1=findViewById(R.id.list_items);
         lv1.setAdapter(adaptador1);
-        descripcion= findViewById(R.id.edit_descripcion);
-        valor= findViewById(R.id.edit_valor);
+        descripcion = findViewById(R.id.edit_descripcion);
+        valor = findViewById(R.id.edit_valor);
+        // descripcion=(EditText) findViewById(R.id.edit_descripcion);
+        // valor=(EditText) findViewById(R.id.edit_valor);
+
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int posicion=i;
+
+                Intent intent = new Intent(ActivitySalud.this, EditItemActivity.class);
+                int[] datos = new int[]{intValue, posicion};
+                intent.putExtra("Datos", datos);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
     @Override

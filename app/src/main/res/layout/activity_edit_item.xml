@@ -58,9 +58,9 @@
         android:layout_marginBottom="8dp"
         android:height="50dp"
         android:background="#FFFFFF"
-        android:digits="0123456789"
+
         android:hint="Descripción"
-        android:inputType="number"
+
         android:textColor="@color/black"
         android:textColorHint="#040303"
         app:layout_constraintBottom_toTopOf="@+id/edit_valor"
@@ -78,7 +78,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="3dp"
         android:background="@drawable/boton_redondo"
-        android:onClick="finishDialog"
+        android:onClick="actualizar_item"
         android:paddingLeft="7dip"
         android:paddingTop="3dip"
         android:text="Actualizar"
@@ -86,12 +86,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boto_eliminar"
+        app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/boto_eliminar"
+        android:id="@+id/boton_eliminar"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_gravity="center|center_vertical"
@@ -100,6 +100,7 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/boton_redondo"
+        android:onClick="eliminar_item"
         android:paddingLeft="15dip"
         android:paddingTop="3dip"
         android:text="Eliminar"
@@ -107,12 +108,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/boto_cancelar"
+        app:layout_constraintEnd_toStartOf="@+id/boton_cancelar"
         app:layout_constraintStart_toEndOf="@+id/boton_actualizar"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/boto_cancelar"
+        android:id="@+id/boton_cancelar"
         android:layout_width="100dp"
         android:layout_height="30dp"
         android:layout_gravity="center|center_vertical"
@@ -121,6 +122,7 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/boton_redondo"
+        android:onClick="cancelar"
         android:paddingLeft="15dip"
         android:paddingTop="3dip"
         android:text="Cancelar"
@@ -129,6 +131,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/boto_eliminar"
+        app:layout_constraintStart_toEndOf="@+id/boton_eliminar"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

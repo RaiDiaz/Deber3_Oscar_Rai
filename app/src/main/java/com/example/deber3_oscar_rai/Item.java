@@ -50,7 +50,7 @@ public class Item{
 
     @Override
     public String toString() {
-        return  "-> "+ descripcion  + "      valor = $" + valor +
+        return  "-> "+ descripcion  + "      valor = $" + valor + "                             >"+
                 "\n " + fechaYHora;
     }
 
