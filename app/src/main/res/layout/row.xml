@@ -3,6 +3,6 @@
     android:id="@+id/text1"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:textColor="@color/white"
+    android:textColor="#393e46"
     android:textSize="18sp"
     />

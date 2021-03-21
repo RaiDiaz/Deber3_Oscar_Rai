@@ -48,10 +48,11 @@ public class Item{
         return fechaYHora;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String toString() {
-        return  "-> "+ descripcion  + "      valor = $" + valor + "                             >"+
-                "\n " + fechaYHora;
+        return  ""+ descripcion  + "      valor = $" + String.format("%,.2f", valor)  + ""+
+                "\n " + fechaYHora.getDayOfMonth()+"/"+fechaYHora.getMonthValue()+" "+fechaYHora.getHour()+":"+fechaYHora.getMinute();
 
     }
 

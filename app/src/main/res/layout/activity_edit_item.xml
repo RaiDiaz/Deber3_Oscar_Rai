@@ -36,7 +36,7 @@
         android:layout_marginEnd="8dp"
         android:height="50dp"
         android:background="#FFFFFF"
-        android:digits="0123456789"
+        android:digits="0123456789.,"
         android:hint="USD"
         android:inputType="number"
         android:textColor="@color/black"

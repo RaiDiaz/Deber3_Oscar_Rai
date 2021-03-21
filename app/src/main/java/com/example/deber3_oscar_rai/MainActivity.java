@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startActivityComida(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivityComida.class);
+        Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
         intent.putExtra("indexLista",0);
         startActivity(intent);
     }
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startActivityEducacion(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivityComida.class);
+        Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
         intent.putExtra("indexLista",2);
         startActivity(intent);
     }
