@@ -15,20 +15,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //Metodos que inician diferente actividades
+    //Los intents llevan un int que representa que itemList utilizara
     public void startActivityComida(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
+        Intent intent = new Intent(MainActivity.this, ActivityItems.class);
         intent.putExtra("indexLista",0);
         startActivity(intent);
     }
 
     public void startActivitySalud(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
+        Intent intent = new Intent(MainActivity.this, ActivityItems.class);
         intent.putExtra("indexLista",1);
         startActivity(intent);
     }
 
     public void startActivityEducacion(View v) {
-        Intent intent = new Intent(MainActivity.this, ActivitySalud.class);
+        Intent intent = new Intent(MainActivity.this, ActivityItems.class);
         intent.putExtra("indexLista",2);
         startActivity(intent);
     }

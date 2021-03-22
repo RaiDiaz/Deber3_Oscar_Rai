@@ -3,15 +3,20 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 
+//ArrayList para manejo de Items
 public class ItemList extends ArrayList<Item> {
+
+    //datos miembro de la clase
     private String nombreLista;
     private double total;
 
+    //constructor de la clase
     public ItemList(String nombreLista){
         this.nombreLista=nombreLista;
         total=0.0;
     }
 
+    //metodo para agreggar items
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addItem(String descripcion, double valor){
         Item item= new Item(descripcion,valor);
@@ -19,6 +24,7 @@ public class ItemList extends ArrayList<Item> {
         total+=item.getValor();
     }
 
+    //metodo para actualizar items
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void actualizarItem(int itemIndex, String descripcion, double valor){
         total-=get(itemIndex).getValor();
@@ -28,20 +34,17 @@ public class ItemList extends ArrayList<Item> {
         total+=get(itemIndex).getValor();
     }
 
+    //metodo para eliminar items
     public void removeItem(Item item){
         remove(item);
         total-=item.getValor();
-    }
-
-    public void removeItem(int itemIndex){
-        remove(itemIndex);
-        total-=get(itemIndex).getValor();
     }
 
     public void setNombreLista(String nombreLista) {
         this.nombreLista = nombreLista;
     }
 
+    //funciones gets de la clase
     public double getTotal() {
         return total;
     }

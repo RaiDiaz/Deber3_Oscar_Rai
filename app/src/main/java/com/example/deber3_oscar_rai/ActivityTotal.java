@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+//actividad que despliega los totales de los items
 public class ActivityTotal extends AppCompatActivity {
 
     private ModeloItemLists mItemLists = ModeloItemLists.getInstance();
@@ -39,7 +40,3 @@ public class ActivityTotal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
-    //private TextView total_item;
-//total_item = findViewById(R.id.total_item);
-    //    total_item.setText(String.format("%,.2f", mItemLists.getListaDeItems(intValue).getTotal()));

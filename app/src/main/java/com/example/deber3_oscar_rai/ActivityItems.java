@@ -21,13 +21,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
-public class ActivitySalud extends AppCompatActivity {
+//actividad para agregar y ver items
+public class ActivityItems extends AppCompatActivity {
 
     public static final int REQUEST = 1;
 
     private ItemList listItem;
-    private ArrayAdapter<Item> adaptador1;
+    private ArrayAdapter<Item> adaptador1; //adaptador que permite transformar un objeto de ArrayList a un View para cargar contenido de un ListView
     private EditText descripcion;
     private EditText valor;
     private TextView total_item;
@@ -39,7 +39,7 @@ public class ActivitySalud extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_salud);
+        setContentView(R.layout.activity_items);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         intValue = getIntent().getIntExtra("indexLista", 0);
@@ -53,20 +53,23 @@ public class ActivitySalud extends AppCompatActivity {
         lv1.setAdapter(adaptador1);
         descripcion = findViewById(R.id.edit_descripcion);
         valor = findViewById(R.id.edit_valor);
+
+        //Listener onClick que inicia EditItemActivity
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final int posicion=i;
 
-                Intent intent = new Intent(ActivitySalud.this, EditItemActivity.class);
+                Intent intent = new Intent(ActivityItems.this, EditItemActivity.class);
                 int[] datos = new int[]{intValue, posicion};
-                intent.putExtra("Datos", datos);
+                intent.putExtra("Datos", datos);//se envia informacion del item seleccionado y la lista de items
                 startActivityForResult(intent,REQUEST);
             }
         });
     }
 
+    //Override de onActivityResult. Cuando se edita o se elimina un item, se actualiza los datos mostrados en ActivityItems
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -83,12 +86,13 @@ public class ActivitySalud extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(ActivitySalud.this,MainActivity.class));
+        startActivity(new Intent(ActivityItems.this,MainActivity.class));
         return super.onOptionsItemSelected(item);
     }
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        public void addItem(View v){
+    //Metodo para agregar items
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addItem(View v){
         Toast toast;
         if(TextUtils.isEmpty(descripcion.getText().toString())||TextUtils.isEmpty(valor.getText().toString())){
             toast = Toast.makeText(this, "Por favor llene todos los campos",

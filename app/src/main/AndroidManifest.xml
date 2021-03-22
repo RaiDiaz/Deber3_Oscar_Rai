@@ -12,8 +12,10 @@
         <activity android:name=".ActivityTotal"></activity>
         <activity
             android:name=".EditItemActivity"
-            android:theme="@android:style/Theme.Dialog"></activity>
-        <activity android:name=".ActivitySalud" />
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".ActivityItems"
+                  android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

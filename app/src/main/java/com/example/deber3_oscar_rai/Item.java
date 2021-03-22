@@ -5,10 +5,12 @@ import java.time.LocalDateTime;
 
 
 public class Item{
+    //datos miembro de la clase
     private String descripcion;
     private double valor;
     private LocalDateTime fechaYHora;
 
+    //constructores  de la clase
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Item(){
         descripcion="Item";
@@ -23,6 +25,7 @@ public class Item{
         fechaYHora=LocalDateTime.now();
     }
 
+    //funciones sets de la calse
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -36,6 +39,7 @@ public class Item{
         fechaYHora=LocalDateTime.now();
     }
 
+    //funciones gets de la clase
     public String getDescripcion() {
         return descripcion;
     }
@@ -48,11 +52,12 @@ public class Item{
         return fechaYHora;
     }
 
+    //override del metodo toString
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String toString() {
-        return  ""+ descripcion  + "      valor = $" + String.format("%,.2f", valor)  + ""+
-                "\n " + fechaYHora.getDayOfMonth()+"/"+fechaYHora.getMonthValue()+" "+fechaYHora.getHour()+":"+fechaYHora.getMinute();
+
+            return String.format("%1$45s", valor) + String.format("%1$22s", fechaYHora.getDayOfMonth()+"/"+fechaYHora.getMonthValue()+" "+fechaYHora.getHour()+":"+fechaYHora.getMinute()) + String.format("%1$20s", descripcion); //+ String.format("| %"+28+"s |\n", valor);
 
     }
 
